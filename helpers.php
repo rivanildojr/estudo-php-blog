@@ -239,3 +239,41 @@
 
         return $newText;
     }
+
+    /**
+     * Valida um CPF
+     * 
+     * @param string $cpf CPF a ser validado
+     * @return bool Verdadeiro se o CPF for válido, falso caso contrário
+     */
+    function cpfValidate(string $cpf): bool {
+        $newCpf = clearNumber($cpf);
+
+        if (mb_strlen($newCpf) !== 11 || preg_match('/^(\d)\1{10}$/', $newCpf)) {
+            return false;
+        }
+
+        for ($i = 9; $i < 11; $i++) {
+            for ($d = 0, $c = 0; $c < $i; $c++) {
+                $d += $newCpf[$c] * (($i + 1) - $c);
+            }
+
+            $d = (($d * 10) % 11) % 10;
+
+            if ($newCpf[$c] != $d) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Remove todos os caracteres não numéricos de uma string
+     *
+     * @param string $value String a ser limpa
+     * @return string String limpa, contendo apenas números
+     */
+    function clearNumber(string $value): string {
+        return preg_replace('/[^0-9]/', '', $value);
+    }
