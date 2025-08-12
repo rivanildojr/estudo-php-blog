@@ -6,17 +6,14 @@
      */
     function greeting(): string {
         $hora = date('H');
-        $mensage = '';
+        $hora = (int)$hora;
 
-        if ($hora >= 0 && $hora < 5) {
-            $mensage = 'Boa madrugada';
-        } elseif ($hora >= 5 && $hora < 12) {
-            $mensage = 'Bom dia';
-        } elseif ($hora >= 12 && $hora < 18) {
-            $mensage = 'Boa tarde';
-        } else {
-            $mensage = 'Boa noite';
-        }
+        $mensage = match(true) {
+            $hora >= 0 && $hora < 5 => 'Boa madrugada',
+            $hora >= 5 && $hora < 12 => 'Bom dia',
+            $hora >= 12 && $hora < 18 => 'Boa tarde',
+            default => 'Boa noite',
+        };
 
         return $mensage;
     }
