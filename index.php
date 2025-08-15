@@ -6,11 +6,18 @@
 
     require_once 'system/config.php';
     include_once 'helpers.php';
+    include_once 'system/core/Mensage/Mensage.php';
+
+    use Core\Mensage\Mensage;
 
     echo greeting();
     echo '<br>';
 
-    $url = 'http://unset.';
-    echo '<br>';
-    echo slugfy('   `^`SDSfasd90a`` sdfasd0 asdf2â 55   ')
+    $mensage = new Mensage();
+
+    echo $mensage->success('mensagem de sucesso')->render();
+    echo $mensage->error('mensagem de erro')->render();
+    echo $mensage->alert('mensagem de alerta')->render();
+    echo $mensage->info('mensagem de info')->render();
+    echo $mensage->info('mensagem de info');
 ?>
