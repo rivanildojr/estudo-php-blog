@@ -8,11 +8,10 @@
      * @author Rivanildo Júnior 
      */
     class Mensage {
-        private $text = 'mensagem de teste';
+        private $text;
         private $css;
 
-        public function __toString()
-        {
+        public function __toString(): string {
             return $this->render();
         }
 
