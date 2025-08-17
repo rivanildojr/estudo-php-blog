@@ -10,3 +10,6 @@
     // URLs do site
     define('PRODUCTION_URL', 'http://meublog.com');
     define('DEVELOP_URL', 'http://localhost/blog');
+
+    // Base URL do sistema
+    define('BASE_URL', 'blog'); 
