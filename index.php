@@ -2,22 +2,13 @@
     /* Arquivo responsável pela inicialização do sistema */
     declare(strict_types=1); // Habilita a verificação estrita de tipos
 
-    // Inclui os arquivos de configuração e funções auxiliares
+    // Inclui o autoload do Composer
+    require 'vendor/autoload.php';
 
-    require_once 'system/config.php';
-    include_once 'helpers.php';
-    include_once 'system/core/Mensage/Mensage.php';
+    use system\core\Helpers\Helpers;
 
-    use Core\Mensage\Mensage;
+    $helper = new Helpers();
+    echo Helpers::greeting();
 
-    echo greeting();
-    echo '<br>';
-
-    $mensage = new Mensage();
-
-    echo $mensage->success('mensagem de sucesso')->render();
-    echo $mensage->error('mensagem de erro')->render();
-    echo $mensage->alert('mensagem de alerta')->render();
-    echo $mensage->info('mensagem de info')->render();
-    echo $mensage->info('mensagem de info');
+    echo SITE_NAME . '<br>';
 ?>

@@ -1,6 +1,6 @@
 <?php
 
-    namespace Core\Mensage;
+    namespace system\core\Mensage;
 
     /**
      * Classe responsável por exibir as mensagens do sistema.

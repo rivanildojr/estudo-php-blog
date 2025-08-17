@@ -1,6 +1,6 @@
 <?php
 
-    namespace Core\Helpers;
+    namespace system\core\Helpers;
 
     class Helpers {
 

@@ -1,0 +1,25 @@
+{
+    "name": "rivanildo/php",
+    "description": "Projeto para estudos do php",
+    "type": "project",
+    "version": "1.0.0",
+    "autoload": {
+        "psr-4": {
+            "system\\": "system/"
+        },
+        "files": [
+            "system/config.php"
+        ]
+    },
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Rivanildo Júnior",
+            "email": "rivanildojr.andrade@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.3.6"
+    }
+}
