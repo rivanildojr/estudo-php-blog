@@ -21,6 +21,7 @@
     ],
     "require": {
         "php": ">=8.3.6",
-        "pecee/simple-router": "dev-master"
+        "pecee/simple-router": "dev-master",
+        "twig/twig": "4.x-dev"
     }
 }
