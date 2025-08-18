@@ -2,7 +2,7 @@
 
     use Pecee\SimpleRouter\SimpleRouter;
 
-    SimpleRouter::setDefaultNamespace('system\core\Controller');
+    SimpleRouter::setDefaultNamespace('system\controllers');
 
     SimpleRouter::group(['prefix' => BASE_URL], function() {
         SimpleRouter::get('/', 'HomeController@index');
