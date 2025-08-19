@@ -7,7 +7,11 @@
     class AboutController extends Controller {
 
         public function __construct() {
-            parent::__construct('templates/website/views/about');
+            parent::__construct([
+                'templates/website/layouts',
+                'templates/website/components',
+                'templates/website/views/About'
+            ]);
         }
 
         public function index(): void {

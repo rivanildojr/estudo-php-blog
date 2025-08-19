@@ -8,8 +8,8 @@
     class Template {
         private \Twig\Environment $twig;
 
-        public function __construct(string $directory) {
-            $loader = new \Twig\Loader\FilesystemLoader($directory);
+        public function __construct(array $directories) {
+            $loader = new \Twig\Loader\FilesystemLoader($directories);
 
             $this->twig = new \Twig\Environment($loader);
 

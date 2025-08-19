@@ -7,7 +7,7 @@
     class Controller {
         protected Template $template;
 
-        public function __construct(string $directory) {
-            $this->template = new Template($directory);
+        public function __construct(array $directories) {
+            $this->template = new Template($directories);
         }
     }

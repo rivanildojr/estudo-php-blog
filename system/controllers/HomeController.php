@@ -7,7 +7,11 @@
     class HomeController extends Controller {
 
         public function __construct() {
-            parent::__construct('templates/website/views');
+            parent::__construct([
+                'templates/website/layouts',
+                'templates/website/components',
+                'templates/website/views',
+            ]);
         }
 
         public function index(): void {
