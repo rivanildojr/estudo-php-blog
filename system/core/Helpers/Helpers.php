@@ -174,8 +174,8 @@
          * @param string $url URL relativa
          * @return string URL completa
          */
-        public static function url(string $url): string {
-            $environment = $this->isLocalhost() ? DEVELOP_URL : PRODUCTION_URL;
+        public static function url(string $url = null): string {
+            $environment = self::isLocalhost() ? DEVELOP_URL : PRODUCTION_URL;
 
             if (str_starts_with($url, '/')) {
                 return $environment . trim($url);
