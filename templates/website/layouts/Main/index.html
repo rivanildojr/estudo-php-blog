@@ -14,7 +14,13 @@
         <link rel="stylesheet" href="{{ url('templates/assets/css/style.css') }}">
         <link rel="stylesheet" href="{{ url('templates/website/assets/css/style.css') }}">
 
-        <title> {{ constant('SITE_NAME') }}</title>
+        <title> 
+            {% if title %}
+                {{ title }} - {{ constant('SITE_NAME') }}
+            {% else %}
+                {{ constant('SITE_NAME') }}
+            {% endif %}
+        </title>
     </head>
 
     <body>
