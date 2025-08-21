@@ -2,6 +2,8 @@
 
     namespace system\core\Helpers;
 
+    use Exception;
+
     class Helpers {
 
         /**
@@ -255,7 +257,7 @@
             $newCpf = self::clearNumber($cpf);
 
             if (mb_strlen($newCpf) !== 11 || preg_match('/^(\d)\1{10}$/', $newCpf)) {
-                return false;
+                throw new Exception('O CPF precisa ter 11 digitos');
             }
 
             for ($i = 9; $i < 11; $i++) {
@@ -266,7 +268,7 @@
                 $d = (($d * 10) % 11) % 10;
 
                 if ($newCpf[$c] != $d) {
-                    return false;
+                    throw new Exception('O CPF é inválido');
                 }
             }
 
@@ -281,5 +283,20 @@
          */
         public static function clearNumber(string $value): string {
             return preg_replace('/[^0-9]/', '', $value);
+        }
+
+        /**
+         * Redireciona para uma URL
+         *
+         * @param string|null $url URL para redirecionar
+         * @return void
+         */
+        public static function redirect(string $url = null): void {
+            header('HTTP/1.1 302 Found');
+
+            $local = $url ? self::url($url) : self::url();
+
+            header("Location: {$local}");
+            exit;
         }
     }
