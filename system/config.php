@@ -13,3 +13,10 @@
 
     // Base URL do sistema
     define('BASE_URL', 'blog'); 
+
+    // Configurações do banco de dados
+    define('DB_HOST', 'localhost');
+    define('DB_PORT', 3306);
+    define('DB_NAME', 'blog');
+    define('DB_USER', 'root');
+    define('DB_PASS', 'rivanildojr');
