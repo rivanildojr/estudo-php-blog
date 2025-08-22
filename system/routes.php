@@ -11,6 +11,8 @@
 
             SimpleRouter::get('/sobre', 'AboutController@index');
 
+            SimpleRouter::get('/post/{id}', 'PostController@index');
+            
             SimpleRouter::get('404', 'NotFoundController@index');
         });
 

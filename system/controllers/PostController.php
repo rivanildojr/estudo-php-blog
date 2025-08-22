@@ -1,29 +1,31 @@
-<?php 
+<?php
 
     namespace system\controllers;
 
     use system\core\Controller\Controller;
-
     use system\model\Post\PostModel;
+    use system\core\Helpers\Helpers;
 
-    class HomeController extends Controller {
+    class PostController extends Controller {
 
         public function __construct() {
             parent::__construct([
                 'templates/website/layouts',
                 'templates/website/components',
-                'templates/website/views',
+                'templates/website/views/Post',
             ]);
         }
 
-        public function index(): void {
+        public function index(int $id): void {
             $posts = new PostModel();
-            $allPosts = $posts->findAll();
+            $post = $posts->find($id);
+
+            if (empty($post)) {
+                Helpers::redirect('404');
+            }
 
             echo $this->template->render('index.html', [
-                'title' => 'Home',
-                'subtitle' => 'Bem-vindo ao nosso site!',
-                'posts' => $allPosts
+                'post' => $post,
             ]);
         }
     }
