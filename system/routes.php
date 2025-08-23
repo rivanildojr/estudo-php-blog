@@ -15,6 +15,8 @@
 
             SimpleRouter::get('/categoria/{id}', 'CategoryController@index');
 
+            SimpleRouter::post('/busca', 'SearchController@index');
+
             SimpleRouter::get('404', 'NotFoundController@index');
         });
 

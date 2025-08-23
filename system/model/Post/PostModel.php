@@ -35,5 +35,15 @@
 
             return $result->fetchAll();
         }
+
+        public function search(string $search): array {
+            $db = Database::getInstance();
+
+            $query = "SELECT * FROM posts WHERE status = 1 AND (title LIKE '%{$search}%' OR `text` LIKE '%{$search}%') ORDER BY id DESC";
+
+            $result = $db->query($query);
+
+            return $result->fetchAll();
+        }
     }
 ?>
