@@ -6,27 +6,33 @@
     use system\core\Helpers\Helpers;
     
     use system\model\Post\PostModel;
+    use system\model\Category\CategoryModel;
 
-    class PostController extends Controller {
+    class CategoryController extends Controller {
 
         public function __construct() {
             parent::__construct([
                 'templates/website/layouts',
                 'templates/website/components',
-                'templates/website/views/Post',
+                'templates/website/views/Category',
             ]);
         }
 
         public function index(int $id): void {
-            $posts = new PostModel();
-            $post = $posts->find($id);
+            $categories = new CategoryModel();
+            $category = $categories->find($id);
 
-            if (empty($post)) {
+            if (empty($category)) {
                 Helpers::redirect('404');
             }
 
+            $posts = new PostModel();
+            $allPosts = $posts->findByCategory($id);
+
             echo $this->template->render('index.html', [
-                'post' => $post
+                'title' => $category->title,
+                'subtitle' => "Post in category: {$category->title}",
+                'posts' => $allPosts
             ]);
         }
     }

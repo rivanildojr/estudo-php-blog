@@ -43,4 +43,8 @@
                 )
             );
         }
+
+        public function addGlobal(string $name, $value): void {
+            $this->twig->addGlobal($name, $value);
+        }
     }

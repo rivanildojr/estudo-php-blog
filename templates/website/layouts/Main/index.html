@@ -24,7 +24,7 @@
     </head>
 
     <body>
-        {% include 'Header/index.html' %}
+        {% include 'Header/index.html' with { 'categorias': categorias } %}
 
         <div class="container py-5">
             {% block content %}{% endblock %}

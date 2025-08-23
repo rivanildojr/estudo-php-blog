@@ -3,7 +3,7 @@
     namespace system\controllers;
 
     use system\core\Controller\Controller;
-
+    
     class NotFoundController extends Controller {
 
         public function __construct() {
