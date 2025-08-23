@@ -15,28 +15,15 @@
                 {% if posts %}
                     {% for post in posts %}
                         <div class="col-md-4 mb-4">
-                            <a href="{{ url('post/' ~ post.id) }}">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h5 class="card-title">
-                                            {{ post.title }}
-                                        </h5>
-                
-                                        <p class="card-text">
-                                            {{ resumeText(post.text, 150) }}
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
+                            {% include 'Post/index.html' with { 
+                                'post': post 
+                            } %}
                         </div>
                     {% endfor %}
                 {% else %}
-                    <div 
-                        class="alert alert-secondary" 
-                        role="alert"
-                    >
-                        Nenhum post encontrado com essa busca.
-                    </div>
+                    {% include 'Feedback/index.html' with { 
+                        'message': 'Nenhum post encontrado com essa busca.' 
+                    } %}
                 {% endif %}
             </div>
         </div>
